@@ -5,26 +5,31 @@ class Runwisp < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/runwisp/runwisp/releases/download/v1.5.1/runwisp-darwin-arm64.tar.gz"
-      sha256 "c966ee1baf9c625aa3ef50370252b297da968ad2be6b0a3934fe30d4b06b3825"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.6.0/runwisp-darwin-arm64.tar.gz"
+      sha256 "59a656f003b03b6a5a0496f1095de066cf0915c6b351406340bb2f1cbc04c260"
     else
-      url "https://github.com/runwisp/runwisp/releases/download/v1.5.1/runwisp-darwin-x64.tar.gz"
-      sha256 "1983cbcad5d8928e771f880eb2a23478e6583495afda7eea08e1b4862302933b"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.6.0/runwisp-darwin-x64.tar.gz"
+      sha256 "750a7cc6453d5c908b217a49c2c5432281f80a883663044e62067bba5db15b7e"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/runwisp/runwisp/releases/download/v1.5.1/runwisp-linux-arm64.tar.gz"
-      sha256 "004ff8e6be037c82ed79e4526fc15038cc21c2f27f9c93a85b8a866cbe5313e5"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.6.0/runwisp-linux-arm64.tar.gz"
+      sha256 "8256f705a179b5fc74099bef4f079b01527bd19a5cf6132f8e5215df1774af13"
     else
-      url "https://github.com/runwisp/runwisp/releases/download/v1.5.1/runwisp-linux-x64.tar.gz"
-      sha256 "176d42f125e4a59c2bd7f3d969515eee96b1f7d7a5d7def8c10f7bda649fa502"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.6.0/runwisp-linux-x64.tar.gz"
+      sha256 "d30056dbc64267a0170f155dc48c6dd863e87d1afa6318da009b2700e648b55f"
     end
   end
 
+  # The binary sits in libexec beside a .runwisp-source marker, which the
+  # update check reads as its install source. bin only gets a symlink, so the
+  # dotfile never lands in the shared <prefix>/bin.
   def install
-    bin.install "runwisp"
+    libexec.install "runwisp"
+    (libexec/".runwisp-source").write "homebrew\n"
+    bin.install_symlink libexec/"runwisp"
   end
 
   test do

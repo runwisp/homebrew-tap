@@ -5,21 +5,21 @@ class Runwisp < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/runwisp/runwisp/releases/download/v1.9.1/runwisp-darwin-arm64.tar.gz"
-      sha256 "2861f3e0b299d70b15166a3a92f849b41a132ae53b845bc3fcdad0d2985b42b5"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.9.2/runwisp-darwin-arm64.tar.gz"
+      sha256 "e82e9dff155f7796b6b37b726a3054ed271a217ba2432a5eaa2cc6655cced770"
     else
-      url "https://github.com/runwisp/runwisp/releases/download/v1.9.1/runwisp-darwin-x64.tar.gz"
-      sha256 "04aa37f4147520e541725fc81ff34e89aa768bd230d5e5aad86c62362d897284"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.9.2/runwisp-darwin-x64.tar.gz"
+      sha256 "bf63c6967a3496ddc598450fdb5ecc71808ad44e16d76bdf71e7874bf4fb2327"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/runwisp/runwisp/releases/download/v1.9.1/runwisp-linux-arm64.tar.gz"
-      sha256 "3713c873c4f55534b75332723fd2ad46a4871e7d60bfcc7c9bf20c1c52a49c0f"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.9.2/runwisp-linux-arm64.tar.gz"
+      sha256 "f898299953e5548e99f5fbd5444b85fe40113aca4c9b1b26b0c05cec8c08becf"
     else
-      url "https://github.com/runwisp/runwisp/releases/download/v1.9.1/runwisp-linux-x64.tar.gz"
-      sha256 "0a1998e47bfe2e1a5d831627d471babf8126845d0ca469e81861e557eb00f629"
+      url "https://github.com/runwisp/runwisp/releases/download/v1.9.2/runwisp-linux-x64.tar.gz"
+      sha256 "fc291411d836d539d4c3e94212c87d3f87f786117b07dce073a7c45a6d142775"
     end
   end
 
